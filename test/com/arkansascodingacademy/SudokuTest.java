@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SudokuTest
 {
+/*
     @Test
     void easy()
     {
@@ -141,5 +142,41 @@ class SudokuTest
 
         final int[][] testSolution = Sudoku.solve(puzzle);
         assertArrayEquals(correctSolution, testSolution);
+    }
+*/
+    @Test
+    void checkColumn()
+    {
+        final int[][] test= {
+        {0, 6, 0, 0, 0, 9, 0, 1, 3},
+        {0, 7, 0, 0, 2, 0, 8, 0, 0},
+        {1, 0, 4, 3, 0, 0, 0, 0, 9},
+        {6, 0, 1, 0, 3, 2, 5, 0, 7},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {3, 0, 7, 9, 8, 0, 1, 0, 2},
+        {7, 0, 0, 0, 0, 8, 3, 0, 5},
+        {0, 0, 9, 0, 6, 0, 0, 2, 0},
+        {2, 5, 0, 7, 0, 0, 0, 9, 0}
+    };
+        assertTrue(Sudoku.checkColumn(3,2,test));
+        assertFalse(Sudoku.checkColumn(9, 7,test));
+    }
+
+    @Test
+    void checkRow()
+    {
+        final int[][] test= {
+                {0, 6, 0, 0, 0, 9, 0, 1, 3},
+                {0, 7, 0, 0, 2, 0, 8, 0, 0},
+                {1, 0, 4, 3, 0, 0, 0, 0, 9},
+                {6, 0, 1, 0, 3, 2, 5, 0, 7},
+                {0, 0, 0, 0, 0, 0, 0, 0, 0},
+                {3, 0, 7, 9, 8, 0, 1, 0, 2},
+                {7, 0, 0, 0, 0, 8, 3, 0, 5},
+                {0, 0, 9, 0, 6, 0, 0, 2, 0},
+                {2, 5, 0, 7, 0, 0, 0, 9, 0}
+        };
+        assertTrue(Sudoku.checkRow(2,2,test));
+        assertFalse(Sudoku.checkRow(8, 6,test));
     }
 }
