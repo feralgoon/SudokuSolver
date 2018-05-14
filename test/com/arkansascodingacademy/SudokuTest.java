@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SudokuTest
 {
-/*
+
     @Test
     void easy()
     {
@@ -143,7 +143,7 @@ class SudokuTest
         final int[][] testSolution = Sudoku.solve(puzzle);
         assertArrayEquals(correctSolution, testSolution);
     }
-*/
+
     @Test
     void checkColumn()
     {

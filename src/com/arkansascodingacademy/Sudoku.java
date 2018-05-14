@@ -37,11 +37,7 @@ public class Sudoku
         {
             for(int y = 0; y < COLUMN_COUNT; y++)
             {
-                if (solvedPuzzle[x][y] != 0)
-                {
-                    continue;
-                }
-                else
+                if (solvedPuzzle[x][y] == 0)
                 {
                     for (int num = 1; num < 10; num++)
                     {
@@ -60,8 +56,8 @@ public class Sudoku
                             }
                         }
                     }
+                    return false;
                 }
-                return false;
             }
         }
         return true;
@@ -71,12 +67,9 @@ public class Sudoku
     {
         boolean result = false;
 
-        for (int i = 0; i < ROW_COUNT; i++)
+        if (checkRow(num,row,solvedPuzzle) && checkColumn(num,column,solvedPuzzle) && checkQuadrants(num,row,column))
         {
-            if (checkRow(num,i,solvedPuzzle) && checkColumn(num,i,solvedPuzzle) && checkQuadrants(num,row,column))
-            {
-                result = true;
-            }
+            result = true;
         }
 
         return result;
